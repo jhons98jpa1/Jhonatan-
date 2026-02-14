@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Jhonatan ❤️ Alisson Michell</title>
+<style>
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  color: pink;
+  font-family: Arial;
+}
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<script>
+const c = document.getElementById("c");
+const ctx = c.getContext("2d");
+c.width = innerWidth;
+c.height = innerHeight;
+
+function draw() {
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.fillStyle = "hotpink";
+  ctx.beginPath();
+  for (let i=0;i<Math.PI*2;i+=0.01){
+    let x = 16*Math.pow(Math.sin(i),3);
+    let y = -(13*Math.cos(i)-5*Math.cos(2*i)-2*Math.cos(3*i)-Math.cos(4*i));
+    ctx.lineTo(c.width/2+x*15,c.height/2+y*15);
+  }
+  ctx.fill();
+  ctx.font="40px Arial";
+  ctx.textAlign="center";
+  ctx.fillText("Jhonatan ❤️ Alisson Michell",c.width/2,c.height/2+120);
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
